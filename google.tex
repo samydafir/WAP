@@ -33,7 +33,7 @@
 	\section{Einführung}
 	Web-Suchmaschinen erfreuen sich seit Jahren einer sehr großen Beliebtheit und sind aus unserem heutigen (Online-)Leben kaum 
 	mehr wegzudenken. Unter diesen Suchmaschinen hat sich die Google-Suche seit ihrer Einführung im Jahr 1998 zum 
-	unumstrittenen Marktführer entwickelt. Dieses Paper im ersten Teil geht grundsätzlich auf die Funktion oder 
+	unumstrittenen Marktführer entwickelt. Dieses Paper geht im ersten Teil grundsätzlich auf die Funktion oder 
 	Anatomie der ursprünglichen Version der Google-Suchmaschine und deren Komponenten ein. Nennenswert sind hierbei 
 	der Web-Crawler, die Indexierung und der PageRank. Es wird auch gezeigt, welche Techniken Google von damals	etablierten
 	Konkurrenten wie Yahoo, Lycos oder AltaVista abhoben und zum Erfolg verhalfen. Zusätzlich wird gezeigt, wie durch
@@ -44,12 +44,12 @@
 	miteinander verknüpften Diensten zur Verfügung, die sich bei Usern aufgrund der ständigen Erreichbarkeit immer 
 	wachsender Beliebtheit erfreuen. Mit dieser steigenden Menge an Diensten des selben Unternehmens steigt natürlich 
 	auch die Menge an persönlichen Benutzerdaten, über die das Unternehmen verfügt. Damit stellt sich immer öfter die Frage,
-	wie mit diesen Daten umgegangen wird. Mit dieser Frage beschäftigt sich der zweite Teil dieses Papers. Wir zeigen anhand 
+	wie mit diesen Daten umgegangen wird. Damit beschäftigt sich der zweite Teil dieses Papers. Wir zeigen anhand 
 	einiger Beispiele, dass Datenschutz und Privatsphäre im Google-Universum keineswegs allerhöchste Priorität genießen.
 	
 	\section{Web-Crawling}\label{sec:google}
 	\subsection{Grundlagen}
-	Web-Crawler sind Programme, die das Web durchforsten und in den verschiedensten Gebieten zum sammeln von Daten
+	Web-Crawler sind Programme, die das Web durchforsten und in den verschiedensten Anwengungsgebieten zum auffinden von Daten
 	verwendet werden. Unter anderem verwenden viele Web-Suchmaschinen, wie auch Google, Web-Crawler, um Daten
 	über Webseiten zu sammeln. Dies ergibt neben dem Informationsgewinn für den Initiator des Crawlers auch einen
 	Mehrwert für die gecrawlte Webseite, da diese dann im Index des jeweiligen Suchanbieters, in unserem Fall Google,
@@ -59,11 +59,11 @@
 	muss\cite{page98}.
 	Aufgrund der Größe des World-Wide-Web und dessen immer weitere Expansion, sowie der Tatsache, dass Webseiten, die
 	einmal gefunden wurden immer wieder verändert werden, müssen Crawler riesige Datenmengen verarbeiten und eine große
-	Menge von Webseiten pro Sekunde crawlen können, um den Suchindex einer Suchmaschine aktuell halten zu können.\cite{hafri04}
+	Menge von Webseiten pro Sekunde crawlen können, um den Suchindex einer Suchmaschine aktuell halten zu können\cite{hafri04}.
 	Die bereits erwähnte Expansion und Änderung von Webseiten führt dazu, dass das zu crawlende Web eine praktisch unendliche
 	Größe erreicht. Ein mit dem Ziel alle Webseiten des WWW zu crawlen und damit einen aktuellen Index des gesamten Web zu erstellen
 	gestarteter Crawler wird dieses Ziel nie erreichen können, da aufgrund der ständigen Veränderung des Web bereits gecrawlte
-	Seiten immer wieder neu gecrawlt werden müssen, um einen aktuellen Index-Eintrag zu gewährleisten.\cite{yates05}
+	Seiten immer wieder neu gecrawlt werden müssen, um einen aktuellen Index-Eintrag zu gewährleisten\cite{yates05}.
 	
 	\subsection{Google's Web-Crawler}
 	Google verwendet Web-Crawler in einem verteilten System. Die zentralen Aufgaben wurden aufgeteilt. Ein zentraler URL-Server
@@ -71,13 +71,13 @@
 	laden die damit verbundenen HTML-Dokumente herunter und senden diese an einen Store-Server, der die Dokumente in einem so
 	genannten Repository zur späteren Analyse (Parsing) und Indexierung ablegt (siehe Kapitel \ref{indexDat}: Indexierung und Datenstrukturen).
 	Beim Parsen werden URLs aus den Dokumenten extrahiert und wiederum dem URL-Server zur späteren Verteilung auf die Crawler
-	zugeführt (Extrahieren der URLs kann einfach durchgeführt werden, da diese im HTML-Dokument einfach mit Tags zu identifizieren
+	zugeführt (Extrahieren der URLs kann einfach durchgeführt werden, da diese im HTML-Dokument einfach anhand von Tags zu identifizieren
 	sind).
 	Um eine Webseite zu erreichen müsste jeder Crawler zuerst den jeweiligen zur URL gehörenden DNS-Server nach der IP der Seite befragen.
-	Da sich DNS in verschiedenen Staaten oder Kontinenten befinden, können dadurch aufgrund der variierenden Verbindungsgeschwindigkeit enorme
+	Da sich DNS in verschiedenen Staaten oder auf verschiedenen Kontinenten befinden, können dadurch aufgrund der variierenden Verbindungsgeschwindigkeit enorme
 	Einbußen bei der Crawl-Performance zustande kommen.
 	Um das zu verhindern und die Effizienz und Performance zu erhöhen, hat jeder Crawler seinen eigenen DNS-Cache, um nicht für jede zu verfolgende
-	URL zuerst eine Abfrage	am jeweiligen DNS-Server durchführen zu müssen.\cite{page98}
+	URL zuerst eine Abfrage	am jeweiligen DNS-Server durchführen zu müssen\cite{page98}.
 	
 	
 	
@@ -88,66 +88,66 @@
 	werden. Die Indexierung beginnt immer damit, dass wichtige Informationen aus den Dokumenten extrahiert werden. Diese Informationen beinhalten
 	sämtliche als wichtig erkennbare Wörter und Textstellen des Dokuments: Titel der Webseite, Hyperlinks oder hervorgehobener Text (z.B. fett, kursiv).
 	Diese extrahierten Informationen werden dann verwendet, um Indexeinträge für die jeweilige Webseite zu erstellen und diese damit über die Suchmaschine
-	auffindbar zu machen.\cite{langville11}\newline
-	Im nächsten Kapitel wird genauer auf Indexstrukturen der Google Suchmaschine eingegangen.\cite{page98}
+	auffindbar zu machen\cite{langville11}.\newline
+	Im nächsten Kapitel wird genauer auf Indexstrukturen der Google Suchmaschine eingegangen.
 	
 	\subsection{Google}
 	
 	
 	\subsubsection{Repository}
 	Im Repository werden die, von den Crawlern heruntergeladenen Webseiten als HTML-Quelltext gespeichert und komprimiert. Bereits hier wird jedem Dokument
-	eine DocID zugewiesen, um es eindeutig identifizieren zu können. Außerdem wird zu jedem Dokument die Größe und URL gespeichert.\cite{page98}
+	eine DocID zugewiesen, um es eindeutig identifizieren zu können. Außerdem wird zu jedem Dokument die Größe und URL gespeichert\cite{page98}.
 
 	\subsubsection{Document Index}
 	Der Document Index enthält essenzielle Information zu jeder Webseite. Die Einträge sind nach der DocID der Dokumente sortiert und enthalten jeweils einen
 	Pointer auf den komprimierten Quelltext im Repository, die Checksumme zum jeweiligen Dokument sowie diverse Statistiken. Zusätzlich existiert eine Datei, in
 	der zu jeder URL die DocID abgelegt ist. Die Datei ist nach den Checksummen der URLs sortiert. Diese Datei wird im weiteren verwendet, um zu einer URL die
-	jeweilige DocID zu finden. Dazu wird die Checksumme der URL berechnet und binary-search auf diese Datei ausgeführt.\cite{page98}
+	jeweilige DocID zu finden. Dazu wird die Checksumme der URL berechnet und binary-search auf diese Datei ausgeführt\cite{page98}.
 	
 	\subsubsection{Hit Lists}
-	Für jedes Dokument wird eine Hit List erstellt die die Häufigkeit und Art des Vorkommens aller Wörter enthält. Da diese Hitlisten sehr viel Speicher einnehmen,
+	Für jedes Dokument werden Hit Listen erstellt die die Häufigkeit und Art des Vorkommens aller Wörter enthalten. Da diese Hitlisten sehr viel Speicher einnehmen,
 	wurde eine eigene, effiziente und kompakte Kodierung entwickelt. Somit wird jeder Hit durch 2 Byte repräsentiert. Ein Hit List enthält zu jedem auftreten eines Wortes
 	Informationen, wie etwa in welcher Schriftgröße es vorkommt, ob es in einer Überschrift, im Titel, in einem meta-tag oder als Hyperlink vorkommt und an welcher Stelle
-	im Dokument das Wort gefunden wurde. Die Länge einer Hit List, also die Häufigkeit des Vorkommens eines Begriffs in einem Dokument ist im Head jeder Hit List abgelegt.\cite{page98}
+	im Dokument das Wort gefunden wurde. Die Länge einer Hit List, also die Häufigkeit des Vorkommens eines Begriffs in einem Dokument ist im Head jeder Hit List abgelegt\cite{page98}.
 	
 	\subsubsection{Forward Index}
 	Der Forward Index ist auf 64 sogenannte Barrels aufgeteilt. Die Einträge in diesem Index sind nach WordIDs aufgeteilt. Jedes Wort hat eine eindeutige WordID und ist 
 	einem bestimmten Barrel zugewiesen. Enthält jetzt ein Document ein bestimmtes Wort, wird eine neuer Eintrag im Barrel erstellt, dem das Wort zugewiesen ist. Dieser
 	Eintrag besteht aus einem Head-Teil, der die DocID des Dokuments enthält und der jeweiligen WordID. Außerdem enthält jeder Eintrag auch die Hit List für das jeweilige
-	Wort im jeweiligen Dokument. Ein derartiger Eintrag wird für jedes Wort in jedem Artikel im passenden Barrel erstellt. Zu erwähnen ist auch, dass durch diese Aufteilung
+	Wort im jeweiligen Dokument. Ein derartiger Eintrag wird für jedes Wort in jedem Dokument im passenden Barrel erstellt. Zu erwähnen ist auch, dass durch diese Aufteilung
 	eine teilweise Sortierung der Einträge erreicht wird, da jedes Barrel nur einen Bereich von Wörtern enthält. Diese Sortierung führt zu beschleunigten Abfragen, da für eine
-	Anfrage nur ein Teil der Einträge durchsucht werden muss.\cite{page98}
+	Anfrage nur ein Teil der Einträge durchsucht werden muss\cite{page98}.
 	
 	\subsubsection{Lexikon und Inverted Index}
 	Der Inverted Index besteht aus den selben Barrels wie der Forward Index (die gleichen Daten). Die Einträge sind hier allerdings nach der DocID sortiert.
 	Das Lexikon enthält alle Wörter, nach denen gesucht werden kann. Jeder Eintrag im Lexikon besteht aus einer eindeutigen WordID und einer Liste von Pointern, die auf den
 	Eintrag im jeweiligen Barrel zeigen, der das Wort enthält. Jeder Eintrag im Lexikon zeigt also auf eine Liste von DocIDs; dies sind alle Dokumente (Webseiten), die das
 	Wort mit der gespeicherten WordID enthalten. Zu jedem dieser Einträge (DocIDs) enthalten die Inverted Barrels die zugehörige Hit List, die angibt, wie oft und in welcher
-	Qualität das Wort im Dokument vorkommt.\cite{page98}
+	Qualität das Wort im Dokument vorkommt\cite{page98}.
 	
 	
 	\section{PageRank}
 	Ende der 90er Jahre wurde noch von keiner einzigen Suchmaschine eine Methode zur Gewichtung der Suchergebnisse nach ihrer Wichtigkeit oder Popularität verwendet.
 	Sämtliche damals etablierte Suchmaschinen verwendeten ein Ranking-System, das nur inhaltliche Analysen berücksichtigte, also Resultate praktisch nur nach der Häufigkeit
 	des Vorkommens des Suchbegriffs oder dem letzten Änderungsdatum bewertete. Dieses System liefert nur unzureichende Ergebnisse und kann zusätzlich von Webseitenbetreibern 
-	leicht manipuliert werden (beispielsweise indem bestimmte Suchbegriffe sehr oft in versteckte Felder geschrieben werden).\cite{wills06}
+	leicht manipuliert werden (beispielsweise indem bestimmte Suchbegriffe sehr oft in versteckte Felder geschrieben werden).\cite{wills06}.
 	Aufgrund dessen wurden 1998 beinahe gleichzeitig zwei Projekte mit dem Ziel	gestartet, Suchresultate zu verbessern und ein Wichtigkeits-Maß für Webseiten zu erstellen.
 	Eines dieser Projekte mit Namen PageRank wurde von den Google Gründern Sergey Brin und Lawrence Page initiiert und das daraus resultierende Ergebnis ist bis heute
-	der Kern der Google-Websuche.\cite{langville11}
-	Das PageRank Prinzip war bis zur Entwicklung durch Brin und Page unbekannt und wurde auch 1998 als Patent auf Lawrence Page eingereicht und 2001 akzeptiert.\cite{google98}
+	der Kern der Google-Websuche\cite{langville11}.
+	Das PageRank Prinzip war bis zur Entwicklung durch Brin und Page unbekannt und wurde auch 1998 als Patent auf Lawrence Page eingereicht und 2001 akzeptiert\cite{google98}.
 
 	\subsection{Allgemein}
 	Das Web kann als gerichteter Graph interpretiert werden. Dabei repräsentieren Knoten Webseiten und Kanten Hyperlinks zwischen Webseiten. PageRank verwendet
 	diese Struktur, um eine Aussage über die Wichtigkeit einer Webseite zu treffen und somit den PageRank zu berechnen. Die Wichtigkeit einer Webseite ist von drei
-	Faktoren abhängig: erstens die Anzahl der Links, die von anderen Seiten auf die aktuelle Seite zeigen, zweitens die Gesamtanzahl der Links auf jeder
-	verlinkenden Seite und drittens der PageRank der jeweiligen verlinkenden Seite. Jeder Link auf die aktuelle Seite kann als eine Art Empfehlung verstanden werden
+	Faktoren abhängig: erstens von der Anzahl der Links, die von anderen Seiten auf die aktuelle Seite zeigen, zweitens von der Gesamtanzahl der Links auf jeder
+	verlinkenden Seite und drittens vom PageRank der jeweiligen verlinkenden Seite. Jeder Link auf die aktuelle Seite kann als eine Art Empfehlung verstanden werden
 	und trägt damit zum PageRank bei. Natürlich ist auch wichtig zu erfassen, wie wichtig die Seite ist, die auf die aktuelle Seite verlinkt: je wichtiger die
 	verlinkende Seite ist (also je höher ihr PageRank), desto wichtiger muss demnach auch die Seite sein, auf die verlinkt wird. Betrachtet man einen Link als
 	Empfehlung wird auch das dritte Kriterium schnell klar: je mehr Links eine Webseite enthält (also je freigiebiger eine Webseite ist), desto geringer ist die
-	Relevanz eines einzigen Links.\cite{langville11}
+	Relevanz eines einzelnen Links\cite{langville11}.
 	Der PageRank kann auch aus dem Modell eines "Random Surfers" heraus interpretiert werden. Man betrachte eine Person, die eine zufällige Webseite als Startpunkt
 	bekommt. Diese Person bewegt sich nun durchs Web, indem Sie eine Folge von Hyperlinks klickt und sich dabei immer nur vorwärts bewegt, also nie zurück auswählt.
-	Der PageRank einer Webseite ist jetzt die Wahrscheinlichkeit vom Random Surfer auf seiner Reise durchs Web besucht zu werden.\cite{page98}
+	Der PageRank einer Webseite ist jetzt die Wahrscheinlichkeit vom Random Surfer auf seiner Reise durchs Web besucht zu werden\cite{page98}.
 	
 	\subsection{Mathematischer Hintergrund}
 	Die ursprüngliche Art und Weise den PageRank zu berechnen, basiert auf folgender Summationsformel:
@@ -159,12 +159,12 @@
 	$B_{P_i}$ ist die Menge aller Webseiten, die auf die Seite $P_i$ linken.\newline
 	Um den PageRank einer Seite $P_i$ zu berechnen, wird für jede Webseite $P_j$, die auf die Seite $P_i$ linkt der Quotient des PageRank der jeweiligen Seite zur
 	Gesamtanzahl der Links auf der Seite $P_j$ gebildet. Die Aufsummierung all dieser Quotienten ergibt den PageRank der Webseite $P_i$. Je mehr Webseiten also auf
-	eine Seite linken, je größer der PageRank der linkenden Seiten und je weniger Links die verlinkenden Seiten enthalten, desto größer ist der PageRank der dieser
+	eine Seite linken, je größer der PageRank der linkenden Seiten und je weniger Links die verlinkenden Seiten enthalten, desto größer ist der PageRank dieser
 	Seite und damit die Wahrscheinlichkeit, vom Random Surfer erreicht zu werden.\newline
-	In der Realität ist de PageRank aller anderen Seiten noch nicht bekannt. Deshalb wird ein iterativer Prozess angewandt. Anfangs wird allen Webseiten der gleiche
+	In der Realität ist der PageRank aller anderen Seiten noch nicht bekannt. Deshalb wird ein iterativer Prozess angewandt. Anfangs wird allen Webseiten der gleiche
 	PageRank (z.B. $1/n$ wobei $n$ die Anzahl der Webseiten im Google-Index ist) zugewiesen. Ausgehend von diesen Ausgangswerten werden Iterationen anhand nachfolgender
 	Formel durchgeführt. In jeder Iteration wird auf das Ergebnis der vorherigen Iteration zurückgegriffen und somit das Ergebnis immer weiter verfeinert, bis ein stabiler
-	Wert erreicht ist.\cite{langville11}
+	Wert erreicht ist\cite{langville11}.
 	\begin{displaymath}
 	r_{k+1}(P_i)=\sum_{P_j\in B_{P_i}} \frac{r_k(P_j)}{|P_j|}
 	\end{displaymath}
@@ -173,16 +173,16 @@
 	\section{Ablauf der Suche}
 	In den vergangenen Kapiteln haben wir uns damit befasst, aus welchen Komponenten die Google Web-Suchmaschine besteht und was sie von der Konkurrenz unterscheidet.
 	Nun werfen wir einen Blick darauf, wie all diese Komponenten zusammenspielen, um ausgehend von einem eingegebenen Suchbegriff hochqualitative Suchergebnisse zu
-	liefern. Page und Brin beschreiben den Ablauf folgendermaßen:
+	liefern. Page und Brin\cite{page98} beschreiben den Ablauf folgendermaßen:
 	\begin{enumerate}
 	\item Der Suchvorgang startet damit, dass der eingegebene Suchstring in einzelne Wörter zerlegt wird.
 	\item Diese Wörter werden dann zu WordIDs konvertiert, da der Index nur nach WordIDs und nicht nach Wörtern im Klartext durchsucht werden.
 	\item Jede WordID wird im Lexikon des Inverse Index gesucht. Es muss also zuerst der Anfang der Dokumentenliste zu jedem Wort im Inverse Index gefunden werden.
-	\item Alle Dokumentenlisten werden parallel durchsucht, bis ein Dokument gefunden wird, dass alle Suchbegriffe enthält.
-	\item Diese gefundene Dokument wird dann als vorläufiges Ergebnis vorgemerkt und der Rank berechnet. Der Rang ist eine Art Punktezahl, anhand derer
-		die gefundenen Ergebnisse am ende sortiert werden können. Er ergibt sich aus einer Kombination von PageRank und Treffer-Informationen aus den Hit Lists:
+	\item Alle Dokumentenlisten werden parallel durchsucht, bis ein Dokument gefunden wird, das alle Suchbegriffe enthält.
+	\item Dieses gefundene Dokument wird dann als vorläufiges Ergebnis vorgemerkt und der Rank berechnet. Der Rang ist eine Art Punktezahl, anhand derer
+		die gefundenen Ergebnisse am Ende sortiert werden können. Er ergibt sich aus einer Kombination von PageRank und Treffer-Informationen aus den Hit Lists:
 	\begin{itemize}
-		\item Wird ein Wort als auf einer Webseite wichtiges Wort erkannt, also ist es beispielsweise fett gedruckt, im Seitentitel in einer Überschrift, oder
+		\item Wird ein Suchbegriff als auf einer Webseite wichtiges Wort erkannt, also ist es beispielsweise fett gedruckt, im Seitentitel in einer Überschrift, oder
 			sogar in der URL der Seite enthalten werden für den Treffer mehr Punkte vergeben, als für einen normalen Treffer im Fließtext. Google erzielt auch hier
 			einen Qualitätsgewinn gegenüber anderen Web-Suchmaschinen, da sehr viele Statische Werte erfasst werden.
 		\item Die Trefferzahl erzielt anfangs einen großen Anstieg der Punktezahl, mit Steigender Anzahl der Treffer, nimmt jedoch der Zuwachs ab\footnote{eventuell
